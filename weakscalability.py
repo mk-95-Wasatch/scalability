@@ -37,8 +37,11 @@ for integ in integrators:
             ups_obj.set_viscosity(viscosity)
             ups_obj.write_changes()
 
+            abs_wdir_path = str(Path(path).absolute())
             abs_file_path = str(Path(new_file_name).absolute())
-            mpi_command = 'mpirun -np {} $SUS {} > out.log'.format(core_num,abs_file_path)
+            mpi_command = 'mpirun -np {} $SUS {} > out.log'.format(core_num,'taylor-green-vortex-3d.ups')
+            change_dir = 'cd {}'.format(abs_wdir_path)
+            slurm_runs.append(change_dir)
             slurm_runs.append(mpi_command)
             # print(mpi_command)
 
