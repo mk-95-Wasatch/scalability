@@ -43,8 +43,8 @@ for integ in integrators:
             # print(mpi_command)
 
 print(slurm_runs)
-slurm_file = "slurm_weak.sh"
-copyfile("slurm_base.sh",slurm_file)
+slurm_file = "slurm_weak.script"
+copyfile("slurm_base.script", slurm_file)
 MyFile=open(slurm_file,'a')
 
 for element in slurm_runs:
